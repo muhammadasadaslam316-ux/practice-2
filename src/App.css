@@ -2,6 +2,27 @@
   text-align: center;
 }
 
+.app {
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app.dark-mode {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+.app.dark-mode .form-control {
+  background-color: #343a40;
+  border-color: #6c757d;
+  color: #f8f9fa;
+}
+
+.app.dark-mode .form-control:focus {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
