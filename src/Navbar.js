@@ -1,8 +1,10 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const isDarkMode = props.isDarkMode === "dark";
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg ${isDarkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">TextUtils</a>
         <button
@@ -29,6 +31,19 @@ export default function Navbar() {
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-light" type="submit">Search</button>
           </form>
+          <div className="form-field">
+            <div className="switch switch-sm">
+              <input
+                type="checkbox"
+                value="light"
+                id="switchSizeSm"
+                role="switch"
+                checked={isDarkMode}
+                onChange={props.toggleMode}
+              />
+            </div>
+            <label htmlFor="switchSizeSm">Mode</label>
+          </div>
         </div>
       </div>
     </nav>

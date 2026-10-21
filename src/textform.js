@@ -9,9 +9,13 @@ export default function Textform(props) {
   }
   const Handleupclick=()=>{
     setText(text.toUpperCase());
+  props.showAlert("Text converted to uppercase!", "Success");
+   
   }
   const Handlecapclick=()=>{
     setText(text.toLowerCase().replace(/(^|\s)\S/g, (character) => character.toUpperCase()));
+    props.showAlert("Text converted to capitalized case!", "Success");
+   
   }
 
  
@@ -23,10 +27,10 @@ export default function Textform(props) {
       <div className="form-field">
   <textarea className="form-control" id="fieldTextarea" rows="10" value={text} onChange={HandleOnChange}></textarea>
   <div className="form-text">
-    < div className="container my-3">
+    <div className="container my-3">
    <div className="btn btn-primary mx-1" onClick={Handleupclick}>Convert to UpperCase</div>
-   <div className="btn btn-primary mx-1" onClick={()=>setText(text.toLowerCase())}>Convert to LowerCase</div>
-   <div className="btn btn-primary mx-1" onClick={()=>setText("")}>Empty</div>
+   <div className="btn btn-primary mx-1" onClick={()=>{setText(text.toLowerCase()); props.showAlert("Text converted to lowercase!", "Success");}}>Convert to LowerCase</div>
+   <div className="btn btn-primary mx-1" onClick={()=>{setText(""); props.showAlert("Text cleared!", "Success");}}>Empty</div>
    <div className="btn btn-primary mx-1" onClick={Handlecapclick}>Convert to capitalized Case</div>
   </div>
 </div>

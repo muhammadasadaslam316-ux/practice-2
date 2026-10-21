@@ -23,7 +23,7 @@ export default function About() {
 
 
   return (
-    <div>
+    <div id="about">
         <div className="container my-3" style={myStyle}>
           <h1>About Us</h1>
           <p>Welcome to our text analysis tool! We provide a simple and efficient way to analyze your text content.</p>

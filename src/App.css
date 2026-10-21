@@ -23,6 +23,94 @@
   color: #f8f9fa;
 }
 
+.site-navbar {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+.site-navbar__inner {
+  width: min(100% - 2rem, 1200px);
+  min-height: 56px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.site-navbar__brand,
+.site-navbar__links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-navbar__brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.site-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-navbar__links a {
+  color: #c6c8ca;
+}
+
+.site-navbar__brand:hover,
+.site-navbar__links a:hover {
+  color: #fff;
+}
+
+.site-navbar__toggle {
+  display: none;
+  width: 42px;
+  height: 38px;
+  padding: 8px;
+  border: 1px solid #6c757d;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.site-navbar__toggle span {
+  display: block;
+  height: 2px;
+  margin: 3px 0;
+  background: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+  .site-navbar__inner {
+    flex-wrap: wrap;
+    padding: 9px 0;
+  }
+
+  .site-navbar__toggle {
+    display: block;
+  }
+
+  .site-navbar__links {
+    display: none;
+    flex-basis: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.25rem 0 0.5rem;
+  }
+
+  .site-navbar__links.is-open {
+    display: flex;
+  }
+
+  .site-navbar__links a {
+    width: 100%;
+    padding: 0.55rem 0;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
