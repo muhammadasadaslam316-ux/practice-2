@@ -7,15 +7,17 @@ import Alert from "./Alert.js";
 
 function App() {
   const [Mode, setMode] = useState('dark');
- const toggleMode=()=>{
-    if(Mode === 'dark'){
-      setMode('light');
-    showAlert("light mode has been enabled","Sucess");  
-    } else {
-      setMode('dark');
-      showAlert("dark mode has been enabled","Sucess");  
-    }
+  const toggleMode = () => {
+    const nextMode = Mode === 'dark' ? 'light' : 'dark';
+    setMode(nextMode);
+    showAlert(`${nextMode} mode has been enabled`, "Success");
   };
+  const toggleMode1 = () => {
+    const nextMode = Mode === 'dark' ? 'grey' : Mode === 'grey' ? 'light' : 'dark';
+    setMode(nextMode);
+    showAlert(`${nextMode} mode has been enabled`, "Success");
+  };
+
   const [alert, setAlert] = useState(null);
   const showAlert =(message, type)=>{
     setAlert({
@@ -25,8 +27,8 @@ function App() {
   };
  
   return (
-    <div className={`app${Mode === 'dark' ? " dark-mode" : ""}`}>
-      <Navbar isDarkMode={Mode} toggleMode={toggleMode}/>
+    <div className={`app ${Mode}-mode`}>
+      <Navbar mode={Mode} toggleMode={toggleMode} toggleMode1={toggleMode1} />
       <Alert Alert={alert} />
       <div className="container my-3">
         <Textform heading="Enter the Text to Analyze Below" showAlert={showAlert} />
