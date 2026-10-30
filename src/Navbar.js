@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Navbar(props) {
   const isDarkMode = props.mode !== "light";
   const isGreyMode = props.mode === "grey";
@@ -7,7 +7,7 @@ export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg ${isGreyMode ? "navbar-dark bg-secondary" : isDarkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">TextUtils</a>
+       <Link className="navbar-brand" to="/">TextUtils</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,15 +22,15 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about">About</a>
+              <Link className="nav-link" to="/about">About</Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-light" type="submit">Search</button>
+            
           </form>
           <div className="form-field">
             <div className="switch">
